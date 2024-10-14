@@ -1,0 +1,8 @@
+require("config.lazy")
+require("config.mapping")
+require("config.options")
+require("config.color")
+require("config.treesitter")
+require("config.nvim-tree")
+require("config.lspconfig")
+require("config.nvim-cmp")
