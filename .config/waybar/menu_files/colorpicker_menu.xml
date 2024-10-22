@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkMenu" id="menu">
+    <child>
+			<object class="GtkMenuItem" id="hex">
+				<property name="label">Hex</property>
+    	</object>
+		</child>
+		<child>
+			<object class="GtkMenuItem" id="rgb">
+				<property name="label">RGB</property>
+			</object>
+		</child>
+		<child>
+			<object class="GtkMenuItem" id="cmyk">
+				<property name="label">cmyk</property>
+			</object>
+		</child>
+		<child>
+			<object class="GtkMenuItem" id="hsl">
+				<property name="label">hsl</property>
+			</object>
+		</child>
+		<child>
+			<object class="GtkMenuItem" id="hsv">
+				<property name="label">hsv</property>
+			</object>
+		</child>
+	</object>
+</interface>

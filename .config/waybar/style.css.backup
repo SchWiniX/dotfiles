@@ -1,0 +1,104 @@
+@define-color inactive rgba(90, 82, 138, 0.8);
+@define-color active rgba(233, 162, 48, 0.6);
+@define-color font #D6D6D7;
+
+
+* {
+	font-family: SauceCodePro NF,FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: @font; /*#ebdbb2;*/
+}
+
+window#waybar {
+	background-color: transparent;
+}
+
+#workspaces{
+	background-color: transparent;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+#workspaces button {
+	background-color: @inactive;
+	border: none;
+	border-radius: 5px;
+	border-width: 2px;
+	font-weight: bolder;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding-left: 7px;
+	padding-right: 7px;
+	box-shadow: none;
+}
+
+#workspaces button.active {
+	background-color: @active;
+	border: none;
+	border-radius:5px;
+	border-width:2px;
+}
+
+#workspaces button:hover {
+	background-image: none;
+	background: #3c3836;
+	border: none;
+	box-shadow: none;
+}
+
+#window {
+	background-color: @inactive;
+	border-radius: 5px;
+	font-weight: bolder;
+	border: none;
+	box-shadow: none;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#custom-power {
+	background-color: @inactive;
+	border-radius: 5px;
+	font-weight: bolder;
+	border: none;
+	box-shadow: none;
+	padding-left: 7px;
+	padding-right: 7px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+
+#tray,
+#bluetooth,
+#idle_inhibitor,
+#temperature,
+#network,
+#backlight,
+#custom-media,
+#custom-keylock,
+#mpris,
+#pulseaudio,
+#memory,
+#cpu,
+#clock,
+#battery {
+	background-color: @inactive;
+	border-radius: 5px;
+	margin: 10px 0;
+	padding: 5px 10px;
+}
+
+#custom-keylock {
+	padding: 5px 13px;
+}
+
+#mpris.playing {
+	background-color: #b16286;
+}
