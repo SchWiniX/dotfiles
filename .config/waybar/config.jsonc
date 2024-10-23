@@ -2,11 +2,9 @@
 {
 		"layer": "top", // Waybar at top layer
 		"position": "top", // Waybar position (top|bottom|left|right)
-		//"height": 48, // Waybar height (to be removed for auto height)
-		// "width": 1280, // Waybar width
-		"spacing": 8, // Gaps between modules (4px)
-		//"margin-left": 8, 
-		//"margin-right": 8, 
+		"spacing": 0, // Gaps between modules (4px)
+		"mode": "dock",
+		"reload_style_on_change": true,
 		// Choose the order of the modules
 		"modules-left": [
 				//"custom/media"
@@ -38,7 +36,7 @@
 				"format-window-separator": "  ",
 				"window-rewrite-default": "",
 				"window-rewrite": {
-						"class<firefox>": "", // Windows whose classes are "firefox"
+						"class<firefox>": " ", // Windows whose classes are "firefox"
 						"class<firefox> title<.*youtube.*>": "", // Windows whose titles contain "youtube"
 						"class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
 						"class<firefox> title<.*eth.*>": "󰑴",
@@ -57,6 +55,7 @@
 						"class<(.*)dolphin>": "󰝰"
 				},
 		},
+
 		"bluetooth": {
 			"format-connected": "󰂱 {num_connections}",
 			"format-on": "",
@@ -67,15 +66,7 @@
 			"tooltip-format-enumerate-connected": "{device_alias}",
 			"on-click": "kitty bluetui"
 		},
-		"keyboard-state": {
-				"numlock": true,
-				"capslock": true,
-				"format": "{name} {icon}",
-				"format-icons": {
-						"locked": "",
-						"unlocked": ""
-				}
-		},
+
 		"hyprland/window": {
 			"format": "{title}",
 			"rewrite": {
@@ -86,16 +77,7 @@
 				"nvim (.*)": "  $1"
 			}
 		},
-		"hyprland/mode": {
-				"format": "<span style=\"italic\">{}</span>"
-		},
-		"hyprland/scratchpad": {
-				"format": "{icon} {count}",
-				"show-empty": false,
-				"format-icons": ["", ""],
-				"tooltip": true,
-				"tooltip-format": "{app}: {title}"
-		},
+
 		"mpd": {
 				"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
 				"format-disconnected": "Disconnected ",
@@ -122,22 +104,19 @@
 				"tooltip-format": "MPD (connected)",
 				"tooltip-format-disconnected": "MPD (disconnected)"
 		},
-		"idle_inhibitor": {
-				"format": "{icon}",
-				"format-icons": {
-						"activated": " ",
-						"deactivated": " "
-				}
-		},
+
 		"tray": {
 				// "icon-size": 21,
 				"spacing": 10
 		},
+
 		"clock": {
-				// "timezone": "America/New_York",
-				"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-				"format-alt": "{%d.%m.%y}"
+				"timezone": "Europa/Zurich",
+				"format": "{:%H:%M}",
+				"format-alt": "{%d.%m.%y}",
+				"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",	
 		},
+
 		"cpu": {
 				"format": "{usage}% ",
 				"tooltip": false
@@ -145,6 +124,7 @@
 		"memory": {
 				"format": "{}% "
 		},
+
 		"temperature": {
 				// "thermal-zone": 2,
 				// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -154,11 +134,13 @@
 				"format-icons": ["", "", ""],
 				"on-click": "kitty btop"
 		},
+
 		"backlight": {
 				// "device": "acpi_video1",
 				"format": "{icon} {percent}%",
 				"format-icons": ["", "", "", "", "", "", "", "", ""]
 		},
+
 		"battery": {
 				"interval": 5,
 				"states": {
@@ -179,6 +161,7 @@
 				// "format-good": "", // An empty format will hide the module
 				"format-icons": ["󱊡", "󱊢", "󱊣"]
 		},
+
 		"power-profiles-daemon": {
 			"format": "{icon}",
 			"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
@@ -190,6 +173,7 @@
 				"power-saver": ""
 			}
 		},
+
 		"network": {
 				// "interface": "wlp2*", // (Optional) To force the use of this interface
 				"format-wifi": "{icon} {signalStrength}%",
@@ -205,12 +189,13 @@
 				//"format-alt": "{ifname}: {ipaddr}/{cidr}"
 				//"format-linked": "{ifname} (No IP)  ",
 		},
+
 		"pulseaudio": {
 				// "scroll-step": 1, // %, can be a float
 				"format": "{volume}% {icon}",
 				"format-bluetooth": "{volume}% {icon}",
 				"format-bluetooth-muted": " {icon}",
-				"format-muted": " ",
+				"format-muted": "",
 				"format-source": "{volume}% ",
 				"format-source-muted": "",
 				"format-icons": {
@@ -224,6 +209,7 @@
 				},
 				"on-click": "pavucontrol"
 		},
+
 		"custom/media": {
 				"format": "{icon} {}",
 				"return-type": "json",
@@ -236,10 +222,12 @@
 				"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
 				// "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
 		},
+
 		"custom/power": {
 			"format" : "⏻",
 			"tooltip": false,
-			"menu": "on-click",
+			"on-click": "shutdown now",
+			"menu": "on-click-right",
 			"menu-file": "$HOME/.config/waybar/menu_files/power_menu.xml", // Menu file in resources folder
 			"menu-actions": {
 				"shutdown": "shutdown now",
@@ -253,7 +241,8 @@
 			"format" : "",
 			"tooltip": true,
 			"tooltip-format": "Color Picker",
-			"menu": "on-click",
+			"on-click": "hyprpicker -f hex -a",
+			"menu": "on-click-right",
 			"menu-file": "$HOME/.config/waybar/menu_files/colorpicker_menu.xml", // Menu file in resources folder
 			"menu-actions": {
 				"hex": "hyprpicker -f hex -a",
@@ -262,5 +251,9 @@
 				"hsl": "hyprpicker -f hsl -a",
 				"hsv": "hyprpicker -f hsv -a"
 			}
+		},
+
+		"custom/silentwrench": {
+		"format": ""
 		}
 }
