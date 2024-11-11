@@ -8,7 +8,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
 
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'java_language_server', 'cmake', 'lua_ls' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'java_language_server', 'cmake' }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
 		capabilities = capabilities,
@@ -17,6 +17,15 @@ for _, lsp in ipairs(servers) do
 		end,
 	}
 end
+
+lspconfig.texlab.setup {
+	filetype = {
+		"tex",
+		"plaintex",
+		"bib",
+		"md"
+		}
+}
 
 lspconfig.lua_ls.setup {
 	settings = {

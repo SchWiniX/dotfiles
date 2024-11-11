@@ -17,6 +17,8 @@
 				//"keyboard-state",
 				//"idle_inhibitor",
 				"custom/colorpicker",
+				"custom/rotate-screen",
+				"custom/onscreen-keyboard",
 				"pulseaudio",
 				"bluetooth",
 				"network", 
@@ -239,8 +241,7 @@
 
 		"custom/colorpicker": {
 			"format" : "",
-			"tooltip": true,
-			"tooltip-format": "Color Picker",
+			"tooltip": false,
 			"on-click": "hyprpicker -f hex -a",
 			"menu": "on-click-right",
 			"menu-file": "$HOME/.config/waybar/menu_files/colorpicker_menu.xml", // Menu file in resources folder
@@ -252,8 +253,20 @@
 				"hsv": "hyprpicker -f hsv -a"
 			}
 		},
+		
+		"custom/rotate-screen": {
+			"format": "󰢅",
+			"tooltip": false,
+			"on-click": "./$home/.config/waybar/custom_scripts/rotate_screen.sh 2"
+		},
 
-		"custom/silentwrench": {
-		"format": ""
+		"custom/onscreen-keyboard": {
+			"hide-empty-text": false,
+			"return-type": "json",
+			"exec": "$HOME/.config/waybar/custom_scripts/binary_toggler/scan_process.sh wvkbd-mobintl | jq --unbuffered --compact-output",
+			"exec-on-event": true,
+			"interval": "once",
+			"on-click": "$HOME/.config/waybar/custom_scripts/binary_toggler/toggle_binary.sh wvkbd-mobintl"
+			//"escape": true
 		}
 }
