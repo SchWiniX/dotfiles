@@ -18,15 +18,6 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
-lspconfig.texlab.setup {
-	filetype = {
-		"tex",
-		"plaintex",
-		"bib",
-		"md"
-		}
-}
-
 lspconfig.lua_ls.setup {
 	settings = {
 		Lua = {

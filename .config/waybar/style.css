@@ -9,7 +9,7 @@
 * {
 	border: none;
 	font-size: 14px;
-	font-family: "IosevkaTermSlab Nerd Font, IosevkaTermSlab NF, Terminus Nerd Font, Terminus NF";
+	font-family: "IosevkaTermSlab Nerd Font, IosevkaTermSlab NF, SauceCodePro Nerd Font, SauceCodePro NF";
 	font-weight: bold;
 	color: @font;
 }
@@ -50,7 +50,7 @@ window#waybar {
 	border-radius: 6px;
 	box-shadow: 0px 0px 2px 1px @shadow, 0px 0px 1px 1px @shadow2, 0px 0px 1px 1px @shadow2 inset;
 	margin: 4px;
-	padding: 1px 13px 1px 7px;
+	padding: 4px 13px 4px 7px;
 }
 
 
@@ -63,17 +63,15 @@ window#waybar {
 	border-width: 3px;
 	border-color: @active_border_1;
 	border-radius: 6px;
-	/*border-image: url('~/Downloads/border.png') 40% stretch;*/
-	border-color: @active_border_1;
 	box-shadow: 0px 0px 2px 1px @shadow, 0px 0px 1px 1px @shadow2, 0px 0px 1px 1px @shadow2 inset;
 	margin: 4px 4px 4px 6px;
-	padding: 2px 8px 2px 8px;
+	padding: 4px 8px;
 }
-/*
- ::before {
-	border-image: linear-gradient(to bottom, @active_border_1 20%, @active_border_2 80%) 1;
- } 
-*/
+
+/* ::before {
+// 	border-image: linear-gradient(to bottom, @active_border_1 20%, @active_border_2 80%) 1;
+ } */
+
 window#waybar.empty #window {
 	background: transparent;
 	border: none;
@@ -86,6 +84,9 @@ window#waybar.empty #window {
 #network,
 #backlight,
 #battery,
+#cpu,
+#memory,
+#temperatur,
 #tray,
 #clock {
 	background: @background;
@@ -98,9 +99,7 @@ window#waybar.empty #window {
 	padding: 2px 9px;
 }
 
-/*single icon tools*/
-#custom-onscreen-keyboard,
-#custom-rotate-screen,
+/*left most module of rhs*/
 #custom-colorpicker {
 	background: @background;
 	border-style: solid;
@@ -109,7 +108,7 @@ window#waybar.empty #window {
 	border-radius: 6px;
 	box-shadow: 0px 0px 2px 1px @shadow, 0px 0px 1px 1px @shadow2, 0px 0px 1px 1px @shadow2 inset;
 	margin: 4px;
-	padding: 2px 13px 2px 8px;
+	padding: 3px 13px 3px 8px;
 }
 
 /*right most module of rhs*/
@@ -126,8 +125,6 @@ window#waybar.empty #window {
 
 /*conditional styling of modules*/
 
-#custom-onscreen-keyboard:hover,
-#custom-rotate-screen:hover,
 #custom-colorpicker:hover,
 #pulseaudio:hover,
 #bluetooth:hover,
@@ -137,7 +134,6 @@ window#waybar.empty #window {
 	border-color: @active_border_2;
 }
 
-#custom-onscreen-keyboard.open,
 #workspaces button.active,
 #pulseaudio:not(.muted),
 #bluetooth.connected,
@@ -149,4 +145,20 @@ window#waybar.empty #window {
 
 #battery.critical:not(.charging) {
 	border-color: rgba(255, 0, 0, 0.8);
+}
+
+/* menus */
+menu {
+	background: @background;
+	border-style: solid;
+	border-width: 3px;
+	border-color: @inactive_border;
+	border-radius: 6px;
+	box-shadow: 0px 0px 2px 1px @shadow, 0px 0px 1px 1px @shadow2, 0px 0px 1px 1px @shadow2 inset;
+	margin: 4px;
+	padding: 5px;
+}
+
+menuitem:hover {
+	background: @active_border_2
 }

@@ -14,16 +14,15 @@
 				"hyprland/window" //currently focused window
 		],
 		"modules-right": [
-				//"keyboard-state",
-				//"idle_inhibitor",
 				"custom/colorpicker",
-				"custom/rotate-screen",
-				"custom/onscreen-keyboard",
 				"pulseaudio",
 				"bluetooth",
-				"network", 
-				"backlight",
-				"battery",
+				"network",
+				"cpu",
+				"memory",
+				"temperatur",
+				//"backlight",
+				//"battery",
 				"tray",
 				"clock",
 				"custom/power"
@@ -35,26 +34,33 @@
 				"all-outputs": true,
 				"warp-on-scroll": false,
 				"format": "{name}: {windows}",
-				"format-window-separator": "  ",
+				"format-window-separator": "   ",
 				"window-rewrite-default": "",
 				"window-rewrite": {
-						"class<firefox>": " ", // Windows whose classes are "firefox"
+						"class<firefox>": "", // Windows whose classes are "firefox"
 						"class<firefox> title<.*youtube.*>": "", // Windows whose titles contain "youtube"
 						"class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
-						"class<firefox> title<.*eth.*>": "󰑴",
-						"class<firefox> title<.*ethz.*>": "󰑴",
+						"class<firefox> title<ETH Zurich.*>": "󰑴",
 						"class<firefox> title<.*moodle.*>": "󰑴",
-						"class<firefox> title<.*arch.*": "󰣇",
-						"class<firefox> title<.*chat.*>": "󰍩",
+						"class<firefox> title<.*Archwiki": "󰣇",
+						"class<firefox> title<n8 Chat.*>": "󰍩",
+						"class<firefox> title<.*discord.*>": " ",
 						
 						"class<kitty>": "󰆍",
 						"class<kitty> title<.*vim.*>": "",
+						"class<kitty> title<.*btop.*>": "󰙵",
 						"class<steam>": "",
 						"class<discord>": " ",
+						"class<vesktop>": " ",
 						"class<obsidian>": "󱞁",
-						"class<kitty> title<.*btop.*>": "󰙵",
 						"class<lutris>": "",
-						"class<(.*)dolphin>": "󰝰"
+						"class<Minecraft(.*)>": "󰍳",
+						"class<(.*)prismlauncher>": "󰆦",
+						"class<(.*)dolphin>": "󰝰",
+						"class<(.*)ark>": "",
+						"class<waydroid>": "",
+						"class<waydroid.com.YoStarEN.Arknights>": "󰡛",
+						"class<org.pulseaudio.pavucontrol>": ""
 				},
 		},
 
@@ -120,11 +126,11 @@
 		},
 
 		"cpu": {
-				"format": "{usage}% ",
+				"format": "{usage}%  ",
 				"tooltip": false
 		},
 		"memory": {
-				"format": "{}% "
+				"format": "{}%  "
 		},
 
 		"temperature": {
@@ -178,9 +184,9 @@
 
 		"network": {
 				// "interface": "wlp2*", // (Optional) To force the use of this interface
-				"format-wifi": "{icon} {signalStrength}%",
+				"format-wifi": "{signalStrength}% {icon} ",
 				"format-ethernet": "󰈁",
-				"format-disconnected": "󰤮",
+				"format-disconnected": "󰤮 ",
 				"tooltip": true,
 				"tooltip-format-wifi": "{essid} ({signalStrength}%) {icon} ",
 				"tooltip-format-ethernet": "{ipaddr}/{cidr} 󰈁 ",
@@ -241,7 +247,8 @@
 
 		"custom/colorpicker": {
 			"format" : "",
-			"tooltip": false,
+			"tooltip": true,
+			"tooltip-format": "Color Picker",
 			"on-click": "hyprpicker -f hex -a",
 			"menu": "on-click-right",
 			"menu-file": "$HOME/.config/waybar/menu_files/colorpicker_menu.xml", // Menu file in resources folder
@@ -253,20 +260,8 @@
 				"hsv": "hyprpicker -f hsv -a"
 			}
 		},
-		
-		"custom/rotate-screen": {
-			"format": "󰢅",
-			"tooltip": false,
-			"on-click": "./$home/.config/waybar/custom_scripts/rotate_screen.sh 2"
-		},
 
-		"custom/onscreen-keyboard": {
-			"hide-empty-text": false,
-			"return-type": "json",
-			"exec": "$HOME/.config/waybar/custom_scripts/binary_toggler/scan_process.sh wvkbd-mobintl | jq --unbuffered --compact-output",
-			"exec-on-event": true,
-			"interval": "once",
-			"on-click": "$HOME/.config/waybar/custom_scripts/binary_toggler/toggle_binary.sh wvkbd-mobintl"
-			//"escape": true
+		"custom/silentwrench": {
+		"format": ""
 		}
 }

@@ -1,0 +1,69 @@
+/**
+ * @name Frosted Glass
+ * @author Gibbu#1211
+ * @version 2.0.0
+ * @description Display your picture of choice with adjustable blur and brightness. Dark theme is required.
+ * @invite ZHthyCw
+ * @donate https://paypal.me/IanRGibson
+ * @authorId 174868361040232448
+ * @source https://github.com/DiscordStyles/FrostedGlass
+ * @website https://gibbu.me/
+*/
+
+@import url("https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css");
+
+/* BlackBox tags */
+@import url('https://monstrousdev.github.io/themes/addons/user-tags.css');
+
+/* Old Windows titlebar - remove this @import if you wish to use default titlebar */
+@import url("https://gibbu.github.io/BetterDiscord-Themes/addons/windows-titlebar.css");
+
+:root {
+  /* Background image variables */
+  /*--background-image: url('https://northeurope1-mediap.svc.ms/transform/thumbnail?provider=spo&farmid=190109&inputFormat=png&cs=MDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDQ4MTcxMGE0fFNQTw&docid=https%3A%2F%2Fmy.microsoftpersonalcontent.com%2F_api%2Fv2.0%2Fdrives%2Fb!tBVO7EX3f0-ek9dIY9nAYIaEQtDnB5ROvPuhygCzyX-ODMe0ld_7R6AXNw9VkoDb%2Fitems%2F01LOQL4GPBDSMVHTX4CZCZEBDKVXEH6IJG%3Ftempauth%3Dv1e.eyJzaXRlaWQiOiJlYzRlMTViNC1mNzQ1LTRmN2YtOWU5My1kNzQ4NjNkOWMwNjAiLCJhcHBpZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDA0ODE3MTBhNCIsImF1ZCI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMC9teS5taWNyb3NvZnRwZXJzb25hbGNvbnRlbnQuY29tQDkxODgwNDBkLTZjNjctNGM1Yi1iMTEyLTM2YTMwNGI2NmRhZCIsImV4cCI6IjE3MzE1NTMyMDAifQ.pdO7DGo6DijZAt62bujWQ3s0haYb21Tx95u_kHvUV700Q2JYjlDtuWCgqh2-UyvQFr_WxRwPXEoj-gZfLWGiajwzpWoBCtjRH4nkbwKQ8r_DXvXpnBH9VmUDKnUvnnXT4UFIMwU52jrMEoC0NXH3UwxIjnpX2ZwF4oezeubjhfv86zgTD3mqaZiel506HYYYJs5YSQ5dVkX7BBjfzCUDmJsdqegqiV_J5DK2a0utS5853VW5Dz8s_qraoYdji_QrvS-_sXshbtO36wnFa2oxqk45FCZz_b6JAp4fhUIUw0vc7CHiCm3mJyOCjqakybvzjzLCqDTk7YUtHSOpVo5_0w93agvLsco9AZ-9eq0dTiBEnF0arrvAoz40a1cQrCrU.wD27TwdASEnUeFqHIqRf_s4UET55X-8iLsUOu9t3Gjo%26version%3DPublished&cb=63867130612&encodeFailures=1&width=1262&height=1209'); /* Main background image | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */
+  --background-image-blur: 3px; /* Blur intensity of --background-image | Must end in px | DEFAULT: 5px */
+  --background-image-size: cover; /* Size of the background image | DEFAUT: cover | OPTIONS: cover, contain */
+  --background-image-position: right; /* Position of background image | DEAFULT: center | OPTIONS: top, right, bottom, left, center */
+
+  /* Popout & Modal variables */
+  --popout-modal-image: var(--background-image); /* Background image for popouts and modals | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */
+  --popout-modal-blur: 5px; /* Blur intensity of --popout-modal-image | Must end in px | DEFAULT: 5px */
+  --popout-modal-size: cover; /* Size of the popout/modal image | DEFAUT: cover | OPTIONS: cover, contain */
+  --popout-modal-position: center; /* Position of popout/modal image | DEAFULT: center | OPTIONS: top, right, bottom, left, center */
+
+  /* Home image variables */
+  --home-button-image: url('https://gibbu.github.io/BetterDiscord-Themes/FrostedGlass/assets/discord.svg'); /* Home button image | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */
+  --home-button-size: cover; /* Size of the home button image | DEFAUT: cover */
+  --home-button-position: center; /* Position of home button image | DEAFULT: center */
+
+  /* Brightness variables */
+  --serverlist-brightness: 0.6; /* Brightness for serverlist | 0 - 1 (decimals allowed) | DEFAULT: 0.8 */
+  --left-brightness: 0.6; /* Channels and DM list brightness | 0 - 1 (decimals allowed) | DEFAULT: 0.8 */
+  --middle-brightness: 0.4; /* Chat brightness | 0 - 1 (decimals allowed) | DEFAULT: 0.6 */
+  --right-brightness: 0; /* Members and Now Playing brightness | 0 - 1 (decimals allowed) | DEFAULT: 0 */
+  --popout-modal-brightness: 0.55; /* Brightness for popouts and modals | 0 - 1 (decimals allowed) | DEFAULT: 0.75 */
+
+  /* Gradient variables */
+  --gradient-primary: 103,58,183; /* DEFAULT: 103,58,183 */
+  --gradient-secondary: 63,81,181; /* DEFAULT: 63,81,181 */
+  --gradient-direction: 320deg; /* DEFAULT: 320deg */
+
+  /* Tint variables */
+  --tint-colour: 255,51,159; /* Colour of tint | DEAFULT: 255,51,159 */
+  --tint-brightness: 0; /* Brightness of --tint-colour | 0 - 1 (decimals allowed) | DEFAULT: 0 */
+
+  /* Other variables */
+  --window-padding: 20px; /* Spacing around the Discord window | DEFAULT: 20px */
+  --window-roundness: 10px; /* Roundness of Discord | DEFAULT: 10px */
+  --scrollbar-colour: rgba(255,255,255,0.05); /* DEFAULT: rgba(255,255,255,0.05) */
+  --link-colour: #00b0f4; /* DEFAULT: #00b0f4 */
+
+  /*
+    Visit https://fonts.google.com and select one to your liking.
+    Now just follow this tutorial: https://imgur.com/a/CNbw7xC
+  */
+  --font: 'Whitney';
+
+  /* Do not touch */
+  --update-notice-1: none;
+}
