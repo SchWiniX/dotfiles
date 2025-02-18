@@ -12,8 +12,8 @@ alias grep='grep --color=auto'
 alias protonpull='rclone sync -v ProtonDrive:/root ~/ProtonDrive'
 alias protonpush='rclone sync -v ~/ProtonDrive ProtonDrive:/root'
 alias config='/usr/bin/git --git-dir=$HOME/git-rep/dotfiles/ --work-tree=$HOME'
-alias mktex='mktex.sh'
-alias ll='ls -ahl'
+alias mktex='$HOME/bin/mktex.sh'
+alias ll='ls -ahl --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export "SUDO_EDITOR"="nvim"
