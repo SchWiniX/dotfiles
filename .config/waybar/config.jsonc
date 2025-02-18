@@ -16,16 +16,14 @@
 		"modules-right": [
 				//"keyboard-state",
 				//"idle_inhibitor",
-				"custom/colorpicker",
-				"custom/rotate-screen",
-				"custom/onscreen-keyboard",
+				"group/utils",
 				"pulseaudio",
 				"bluetooth",
 				"network", 
 				"backlight",
 				"battery",
-				"tray",
-				"clock",
+				"group/tray-hidden",
+				"group/clock-hidden",
 				"custom/power"
 		],
 
@@ -41,21 +39,24 @@
 						"class<firefox>": " ", // Windows whose classes are "firefox"
 						"class<firefox> title<.*youtube.*>": "", // Windows whose titles contain "youtube"
 						"class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
-						"class<firefox> title<.*eth.*>": "󰑴",
-						"class<firefox> title<.*ethz.*>": "󰑴",
-						"class<firefox> title<.*moodle.*>": "󰑴",
-						"class<firefox> title<.*arch.*": "󰣇",
+						"class<firefox> title<.*eth.*>": "󰑴 ",
+						"class<firefox> title<.*ethz.*>": "󰑴 ",
+						"class<firefox> title<.*moodle.*>": "󰑴 ",
+						"class<firefox> title<ArchWiki.*": "󰣇",
 						"class<firefox> title<.*chat.*>": "󰍩",
+						"class<firefox> title<.*discord.*>": " ",
+						"class<firefox> title<.*.pdf.*>": " ",
 						
 						"class<kitty>": "󰆍",
 						"class<kitty> title<.*vim.*>": "",
 						"class<steam>": "",
 						"class<discord>": " ",
+						"class<vesktop>": " ",
 						"class<obsidian>": "󱞁",
-						"class<kitty> title<.*btop.*>": "󰙵",
+						"class<kitty> title<.*btop.*>": "󰙵 ",
 						"class<lutris>": "",
 						"class<(.*)dolphin>": "󰝰"
-				},
+				}
 		},
 
 		"bluetooth": {
@@ -80,44 +81,23 @@
 			}
 		},
 
-		"mpd": {
-				"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-				"format-disconnected": "Disconnected ",
-				"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-				"unknown-tag": "N/A",
-				"interval": 5,
-				"consume-icons": {
-						"on": " "
-				},
-				"random-icons": {
-						"off": "<span color=\"#f53c3c\"></span> ",
-						"on": " "
-				},
-				"repeat-icons": {
-						"on": " "
-				},
-				"single-icons": {
-						"on": "1 "
-				},
-				"state-icons": {
-						"paused": "",
-						"playing": ""
-				},
-				"tooltip-format": "MPD (connected)",
-				"tooltip-format-disconnected": "MPD (disconnected)"
-		},
-
 		"tray": {
 				// "icon-size": 21,
 				"spacing": 10
 		},
 
 		"clock": {
-				"timezone": "Europa/Zurich",
+				"timezone": "Europe/Zurich",
 				"format": "{:%H:%M}",
-				"format-alt": "{%d.%m.%y}",
-				"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",	
+				"tooltip": false
 		},
+
+		"clock#date": {
+				"timezone": "Europe/Zurich",
+				"format": "{:%a %d.%m.%y}",
+				"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"	
+		},
+
 
 		"cpu": {
 				"format": "{usage}% ",
@@ -144,7 +124,7 @@
 		},
 
 		"battery": {
-				"interval": 5,
+				"interval": 10,
 				"states": {
 						"full": 100,
 						"good": 95,
@@ -164,23 +144,11 @@
 				"format-icons": ["󱊡", "󱊢", "󱊣"]
 		},
 
-		"power-profiles-daemon": {
-			"format": "{icon}",
-			"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-			"tooltip": true,
-			"format-icons": {
-				"default": "",
-				"performance": "",
-				"balanced": "",
-				"power-saver": ""
-			}
-		},
-
 		"network": {
 				// "interface": "wlp2*", // (Optional) To force the use of this interface
 				"format-wifi": "{icon} {signalStrength}%",
 				"format-ethernet": "󰈁",
-				"format-disconnected": "󰤮",
+				"format-disconnected": "󰤮 ",
 				"tooltip": true,
 				"tooltip-format-wifi": "{essid} ({signalStrength}%) {icon} ",
 				"tooltip-format-ethernet": "{ipaddr}/{cidr} 󰈁 ",
@@ -212,24 +180,10 @@
 				"on-click": "pavucontrol"
 		},
 
-		"custom/media": {
-				"format": "{icon} {}",
-				"return-type": "json",
-				"max-length": 40,
-				"format-icons": {
-						"spotify": "",
-						"default": "🎜"
-				},
-				"escape": true,
-				"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-				// "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-		},
-
 		"custom/power": {
 			"format" : "⏻",
 			"tooltip": false,
-			"on-click": "shutdown now",
-			"menu": "on-click-right",
+			"menu": "on-click",
 			"menu-file": "$HOME/.config/waybar/menu_files/power_menu.xml", // Menu file in resources folder
 			"menu-actions": {
 				"shutdown": "shutdown now",
@@ -257,7 +211,7 @@
 		"custom/rotate-screen": {
 			"format": "󰢅",
 			"tooltip": false,
-			"on-click": "./$home/.config/waybar/custom_scripts/rotate_screen.sh 2"
+			"on-click": "$HOME/.config/waybar/custom_scripts/rotate_screen.sh 2"
 		},
 
 		"custom/onscreen-keyboard": {
@@ -268,5 +222,52 @@
 			"interval": "once",
 			"on-click": "$HOME/.config/waybar/custom_scripts/binary_toggler/toggle_binary.sh wvkbd-mobintl"
 			//"escape": true
+		},
+
+		"custom/group-opener": {
+			"tooltip": false,
+			"hide-empty-text": false,
+			"format": ""
+			//"escape": true
+		},
+
+	// GROUPS:
+	"group/utils": {
+		"orientation": "inherit",
+		"modules": [
+			"custom/group-opener",
+			"custom/colorpicker",
+			"custom/onscreen-keyboard",
+			"custom/rotate-screen"
+		],
+		"drawer": {
+			"transition-duration": 500,
+			"children-class": "utility",
+			"transition-left-to-right": false,
+			"click-to-reveal": false
+		}	
+	},
+
+	"group/tray-hidden": {
+		"orientation": "inherit",
+		"modules": ["custom/group-opener", "tray"],
+		"drawer": {
+			"transition-duration": 500,
+			"children-class": "tray_open",
+			"transition-left-to-right": false,
+			"click-to-reveal": false
 		}
+	},
+
+	"group/clock-hidden": {
+		"orientation": "inherit",
+		"modules": ["clock", "clock#date"],
+		"drawer": {
+			"transition-duration": 500,
+			"children-class": "tray_open",
+			"transition-left-to-right": false,
+			"click-to-reveal": false
+		}
+	}
+	
 }

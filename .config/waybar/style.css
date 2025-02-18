@@ -85,9 +85,7 @@ window#waybar.empty #window {
 #bluetooth,
 #network,
 #backlight,
-#battery,
-#tray,
-#clock {
+#battery {
 	background: @background;
 	border-style: solid;
 	border-width: 3px;
@@ -99,9 +97,9 @@ window#waybar.empty #window {
 }
 
 /*single icon tools*/
-#custom-onscreen-keyboard,
-#custom-rotate-screen,
-#custom-colorpicker {
+#clock-hidden,
+#tray-hidden,
+#utils {
 	background: @background;
 	border-style: solid;
 	border-width: 3px;
@@ -109,7 +107,32 @@ window#waybar.empty #window {
 	border-radius: 6px;
 	box-shadow: 0px 0px 2px 1px @shadow, 0px 0px 1px 1px @shadow2, 0px 0px 1px 1px @shadow2 inset;
 	margin: 4px;
-	padding: 2px 13px 2px 8px;
+	padding: 0px;
+}
+
+#custom-group-opener {
+	background: transparent;
+	margin: 4px 4px 1px 4px;
+	padding: 0px 6px 0px 2px;
+	border-bottom: 3px solid;
+	border-radius: 1px;
+	border-color: @inactive_border;
+}
+
+
+#clock,
+#clock.date,
+#tray,
+#custom-colorpicker,
+#custom-onscreen-keyboard,
+#custom-rotate-screen {
+	background: transparent;
+	margin: 4px 6px 1px 4px;
+	padding: 0px 8px 0px 2px;
+	border-bottom: 3px solid;
+	border-radius: 1px;
+	border-color: @inactive_border;
+
 }
 
 /*right most module of rhs*/
@@ -149,4 +172,20 @@ window#waybar.empty #window {
 
 #battery.critical:not(.charging) {
 	border-color: rgba(255, 0, 0, 0.8);
+}
+
+/* menus */
+menu {
+	background: @background;
+	border-style: solid;
+	border-width: 3px;
+	border-color: @inactive_border;
+	border-radius: 6px;
+	box-shadow: 0px 0px 2px 1px @shadow, 0px 0px 1px 1px @shadow2, 0px 0px 1px 1px @shadow2 inset;
+	margin: 4px;
+	padding: 5px;
+}
+
+menuitem:hover {
+	background: @active_border_2
 }
