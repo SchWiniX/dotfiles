@@ -33,27 +33,27 @@
 				"all-outputs": true,
 				"warp-on-scroll": false,
 				"format": "{name}: {windows}",
-				"format-window-separator": "  ",
+				"format-window-separator": "   ",
 				"window-rewrite-default": "",
 				"window-rewrite": {
-						"class<firefox>": " ", // Windows whose classes are "firefox"
+						"class<firefox>": "", // Windows whose classes are "firefox"
 						"class<firefox> title<.*youtube.*>": "", // Windows whose titles contain "youtube"
 						"class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
-						"class<firefox> title<.*eth.*>": "󰑴 ",
-						"class<firefox> title<.*ethz.*>": "󰑴 ",
-						"class<firefox> title<.*moodle.*>": "󰑴 ",
+						"class<firefox> title<.*eth.*>": "󰑴",
+						"class<firefox> title<.*ethz.*>": "󰑴",
+						"class<firefox> title<.*moodle.*>": "󰑴",
 						"class<firefox> title<ArchWiki.*": "󰣇",
 						"class<firefox> title<.*chat.*>": "󰍩",
-						"class<firefox> title<.*discord.*>": " ",
-						"class<firefox> title<.*.pdf.*>": " ",
+						"class<firefox> title<.*discord.*>": "",
+						"class<firefox> title<.*.pdf.*>": "",
 						
 						"class<kitty>": "󰆍",
 						"class<kitty> title<.*vim.*>": "",
 						"class<steam>": "",
-						"class<discord>": " ",
-						"class<vesktop>": " ",
+						"class<discord>": "",
+						"class<vesktop>": "",
 						"class<obsidian>": "󱞁",
-						"class<kitty> title<.*btop.*>": "󰙵 ",
+						"class<kitty> title<.*btop.*>": "󰙵",
 						"class<lutris>": "",
 						"class<(.*)dolphin>": "󰝰"
 				}
@@ -75,6 +75,7 @@
 			"rewrite": {
 				"(.*) — Mozilla Firefox": "  $1",
 				"(.*) — Discord": "   $1",
+				"(.*) Discord \\| (.*)": "$1     $2",
 				"(.*) — Dolphin": "󰝰  $1",
 				"(.*)Github(.*)": "$1 $2",
 				"nvim (.*)": "  $1"

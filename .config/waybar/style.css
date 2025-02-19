@@ -110,19 +110,18 @@ window#waybar.empty #window {
 	padding: 0px;
 }
 
+#clock,
+#clock.date,
+#tray,
 #custom-group-opener {
 	background: transparent;
 	margin: 4px 4px 1px 4px;
 	padding: 0px 6px 0px 2px;
-	border-bottom: 3px solid;
 	border-radius: 1px;
 	border-color: @inactive_border;
 }
 
 
-#clock,
-#clock.date,
-#tray,
 #custom-colorpicker,
 #custom-onscreen-keyboard,
 #custom-rotate-screen {
