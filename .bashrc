@@ -14,6 +14,8 @@ alias protonpush='rclone sync -v ~/ProtonDrive ProtonDrive:/root'
 alias config='/usr/bin/git --git-dir=$HOME/git-rep/dotfiles/ --work-tree=$HOME'
 alias mktex='$HOME/bin/mktex.sh'
 alias ll='ls -ahl --color=auto'
+alias cf='cd $(dirname $(fzf -e))'
+alias fzf='fzf --preview "head -100 {}" --bind "ctrl-v:execute(nvim {} < /dev/tty)"'
 PS1='[\u@\h \W]\$ '
 
 export "SUDO_EDITOR"="nvim"
